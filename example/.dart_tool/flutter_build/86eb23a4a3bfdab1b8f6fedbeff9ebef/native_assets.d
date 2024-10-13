@@ -1,0 +1,1 @@
+ /Users/mamingkang/ZJSDK_workPace/zjsdk_flutter-0.1.6/example/.dart_tool/flutter_build/86eb23a4a3bfdab1b8f6fedbeff9ebef/native_assets.yaml: 
