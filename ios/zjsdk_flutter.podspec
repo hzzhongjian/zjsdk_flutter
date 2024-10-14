@@ -4,20 +4,20 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'zjsdk_flutter'
-  s.version          = '0.1.6'
+  s.version          = '0.1.7'
   s.static_framework = true
   s.summary          = 'zjsdk ads flutter plusin package.'
   s.description      = <<-DESC
 A new Flutter project.
                        DESC
-  s.homepage         = 'https://github.com/liqiqing/ZJSDK.git'
+  s.homepage         = 'https://github.com/hzzhongjian/zjsdk_flutter.git'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'kkmm' => 'cocos_kkmm@163.com' }
-  s.source           = { :git => 'https://github.com/HalfOfSunshine/ZjsdkFlutterPlugin.git', :tag => s.version.to_s }
+  s.author           = { 'hzzhongjian' => 'opentwo@hzzhongjian.cn' }
+  s.source           = { :git => 'https://github.com/hzzhongjian/zjsdk_flutter.git', :tag => s.version.to_s }
   s.source_files = 'Classes/**/*'
   s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
-  s.dependency 'ZJSDK'
+  s.dependency 'ZJSDK', '~> 2.5.8.14'
   s.platform = :ios, '11.0'
   s.static_framework = true
 
