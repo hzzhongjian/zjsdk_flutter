@@ -1,3 +1,5 @@
 /example/build/
 /example/ios/Pods/
+/example/ios/KSAdSDK.framework
+/example/ios/KSAdSDK.podspec
 /example/ios/.symlinks/
