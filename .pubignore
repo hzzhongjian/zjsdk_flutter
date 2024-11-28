@@ -4,3 +4,4 @@ example/build/
 example/ios/Pods/
 .dart_tool/
 example/.dart_tool/
+./example/ios/Pods/

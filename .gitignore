@@ -4,3 +4,4 @@
 .pubignore
 .dart_tool/
 /example/.dart_tool/
+./example/ios/Pods/
