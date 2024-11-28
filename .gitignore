@@ -1,5 +1,6 @@
 /example/build/
 /example/ios/Pods/
+example/ios/.symlinks/plugins/zjsdk_flutter
 # /build/
 # .pubignore
 # .dart_tool/
