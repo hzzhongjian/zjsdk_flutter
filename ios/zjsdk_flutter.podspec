@@ -17,7 +17,7 @@ A new Flutter project.
   s.source_files = 'Classes/**/*'
   s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
-  s.dependency 'ZJSDK', '~> 2.5.8.14'
+  s.dependency 'ZJSDK'
   s.platform = :ios, '11.0'
   s.static_framework = true
 
