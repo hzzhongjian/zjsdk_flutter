@@ -1,2 +1,7 @@
 /example/build/
 /example/ios/Pods/
+# /build/
+# .pubignore
+# .dart_tool/
+# /example/.dart_tool/
+# ./example/ios/Pods/
