@@ -1,3 +1,4 @@
 /example/build/
 /example/ios/Pods/
 /build/
+.pubignore
