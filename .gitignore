@@ -2,3 +2,13 @@
 /example/ios/Pods/
 /build/
 .pubignore
+.dart_tool/extension_discovery/README.md
+.dart_tool/extension_discovery/vs_code.json
+.dart_tool/package_config_subset
+.dart_tool/version
+.pubignore
+example/.dart_tool/extension_discovery/README.md
+example/.dart_tool/extension_discovery/vs_code.json
+example/.dart_tool/flutter_build/26e5c5f20eb2b60ef5e3234f03d3418c/.filecache
+example/.dart_tool/flutter_build/26e5c5f20eb2b60ef5e3234f03d3418c/App.framework/App
+example/.dart_tool/flutter_build/26e5c5f20eb2b60ef5e3234f03d3418c/app.dill
