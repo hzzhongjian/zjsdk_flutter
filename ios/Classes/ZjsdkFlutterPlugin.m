@@ -8,28 +8,34 @@
 #import "ZJContentFeedPagePlatformView.h"
 #import "ZJContentHorizontalPagePlatformView.h"
 #import "ZJContentImageTextPagePlatformView.h"
-
 #import "ZJNativeExpressAdPlatformView.h"
 #import "ZJPlatformTool.h"
 #import "ZJImageTextVC.h"
 #import "ZJContentListPageVC.h"
 #import "ZJFeedPageVC.h"
 #import "ZJHorizontalFeedPageVC.h"
+
+
 @interface ZjsdkFlutterPlugin ()
-@property (nonatomic,strong)ZJSplashAdWrapper *splashAd;
-@property (nonatomic,strong)ZJRewardVideoAdWrapper *rewardVideoAd;
-@property (nonatomic,strong)ZJInterstitialAdWrapper *interstitialAd;
-@property (nonatomic,strong)ZJH5AdWrapper *h5Ad;
+
+@property (nonatomic, strong) ZJSplashAdWrapper *splashAd;
+
+@property (nonatomic, strong) ZJRewardVideoAdWrapper *rewardVideoAd;
+
+@property (nonatomic, strong) ZJInterstitialAdWrapper *interstitialAd;
+
+@property (nonatomic, strong) ZJH5AdWrapper *h5Ad;
 
 @property (nonatomic, strong) FlutterResult callback;
 
 @property (nonatomic, assign) BOOL methodChannelCreated;
 
-
 @end
 
 @implementation ZjsdkFlutterPlugin
+
 static ZjsdkFlutterPlugin *zjsdkFlutterPlugin = nil;
+
 + (ZjsdkFlutterPlugin *)shareInstance {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -66,10 +72,8 @@ static ZjsdkFlutterPlugin *zjsdkFlutterPlugin = nil;
     [eventChannel setStreamHandler:[ZjsdkFlutterPlugin shareInstance]];
 }
 
-
-
-
 #pragma mark =============== 保存messager，建立接收Flutter通信通道 ===============
+
 - (void)setMessenger:(NSObject<FlutterBinaryMessenger> *)messenger{
     _messenger = messenger;
     
@@ -94,13 +98,13 @@ static ZjsdkFlutterPlugin *zjsdkFlutterPlugin = nil;
         [self createZJMethodChannel:call];
         return;
     }
-    if(!_methodChannelCreated){
+    if (!_methodChannelCreated) {
         [self createZJMethodChannel:call];
     }
     // 调用方法
     if ([call.method isEqualToString:@"setUserId"]) {
         NSString *uid = call.arguments[@"userId"];
-    }else if ([call.method isEqualToString:@"registerAppId"]) {
+    } else if ([call.method isEqualToString:@"registerAppId"]) {
         NSLog(@"------------注册SDK");
         [self registerAppId:call];
     } else if ([call.method isEqualToString:@"getSDKVersion"]) {
@@ -114,41 +118,42 @@ static ZjsdkFlutterPlugin *zjsdkFlutterPlugin = nil;
         // 加载开屏广告
         [self loadSplashAd:call];
         
-    }else if (([call.method isEqualToString:@"showRewardVideoAd"])) {
+    } else if (([call.method isEqualToString:@"showRewardVideoAd"])) {
 //        NSString *adId = call.arguments[@"adId"];
         [self loadRewardVideoAd:call];
         
-    }else if ([call.method isEqualToString:@"showInterstitialAd"]) {
+    } else if ([call.method isEqualToString:@"showInterstitialAd"]) {
 //        NSString *adId = call.arguments[@"adId"];
         [self loadInterstitialAd:call];
         // 加载插屏广告
         
-    }else if ([call.method isEqualToString:@"showH5Ad"]) {
+    } else if ([call.method isEqualToString:@"showH5Ad"]) {
         //        NSString *adId = call.arguments[@"adId"];
         [self loadH5Ad:call];
-    }else if ([call.method isEqualToString:@"showContentVideoListPage"]) {
+    } else if ([call.method isEqualToString:@"showContentVideoListPage"]) {
 //        ZJContentPageAdapter
         [self showContentVideoListPage:call];
-    }else if ([call.method isEqualToString:@"showContentVideoFeedPage"]) {
+    } else if ([call.method isEqualToString:@"showContentVideoFeedPage"]) {
 //        ZJFeedPageAdapter
         //        NSString *adId = call.arguments[@"adId"];
         [self showContentVideoFeedPage:call];
-    }else if ([call.method isEqualToString:@"showContentVideoHorizontal"]) {
+    } else if ([call.method isEqualToString:@"showContentVideoHorizontal"]) {
 //        ZJHorizontalFeedAdapter
         //        NSString *adId = call.arguments[@"adId"];
         [self showContentVideoHorizontal:call];
-    }else if ([call.method isEqualToString:@"showContentVideoImageText"]) {
+    } else if ([call.method isEqualToString:@"showContentVideoImageText"]) {
 //        ZJImageTextAdapter
         //        NSString *adId = call.arguments[@"adId"];
         [self showContentVideoImageText:call];
-    }else{
+    } else {
         NSLog(@"未实现方法异常===============>>%@", call.method);
         result(@"未实现方法异常");
 //        result(FlutterMethodNotImplemented);
     }
 }
 #pragma mark =============== 广告加载 ===============
--(void)createZJMethodChannel:(FlutterMethodCall *)call{
+
+- (void)createZJMethodChannel:(FlutterMethodCall *)call {
     // 建立监听
 //    NSString *channelId = call.arguments[@"_channelId"];
 //    if ([channelId isKindOfClass:[NSNumber class]]) {
@@ -160,12 +165,12 @@ static ZjsdkFlutterPlugin *zjsdkFlutterPlugin = nil;
 //    }
 }
 
--(void)initMethodChannelCallBackDelay{
+- (void)initMethodChannelCallBackDelay {
     NSLog(@"===delay0.5");
     [self callbackWithEvent:@"methodChannelCreated" otherDic:nil error:nil];
 }
 
--(void)registerAppId:(FlutterMethodCall *)call{
+- (void)registerAppId:(FlutterMethodCall *)call {
     __weak __typeof(self) weakSelf = self;
     NSDictionary  *dic = call.arguments;
     NSString *appId = [dic objectForKey:@"appId"];
@@ -180,7 +185,7 @@ static ZjsdkFlutterPlugin *zjsdkFlutterPlugin = nil;
     [self callbackWithEvent:@"SDKVersion" otherDic:@{@"SDKVersion":[ZJAdSDK SDKVersion]} error:nil];
 }
 
-- (void)setPersionalizedState:(FlutterMethodCall *)call
+- (void)setPersionalizedState:(FlutterMethodCall *) call
 {
     NSDictionary  *dic = call.arguments;
     BOOL state = [[dic objectForKey:@"state"] boolValue];
@@ -236,8 +241,9 @@ static ZjsdkFlutterPlugin *zjsdkFlutterPlugin = nil;
         [weakSelf callbackWithEvent:@"splashAdError" otherDic:nil error:error];
     };
 }
+
 /**激励视频加载*/
--(void)loadRewardVideoAd:(FlutterMethodCall *)call{
+- (void)loadRewardVideoAd:(FlutterMethodCall *)call {
     //--------激励视频---------
     __weak __typeof(self) weakSelf = self;
     NSDictionary  *dic = call.arguments;
@@ -284,7 +290,7 @@ static ZjsdkFlutterPlugin *zjsdkFlutterPlugin = nil;
 }
 
 /**插屏广告加载*/
--(void)loadInterstitialAd:(FlutterMethodCall *)call{
+- (void)loadInterstitialAd:(FlutterMethodCall *)call {
     //--------插屏---------
     __weak __typeof(self) weakSelf = self;
     NSDictionary  *dic = call.arguments;
@@ -315,7 +321,7 @@ static ZjsdkFlutterPlugin *zjsdkFlutterPlugin = nil;
 }
 
 /**H5广告加载*/
--(void)loadH5Ad:(FlutterMethodCall *)call{
+- (void)loadH5Ad:(FlutterMethodCall *)call {
     //--------H5---------
     __weak __typeof(self) weakSelf = self;
     NSDictionary  *dic = call.arguments;
@@ -372,7 +378,7 @@ static ZjsdkFlutterPlugin *zjsdkFlutterPlugin = nil;
 
 #pragma mark =============== 视频内容各个样式 ===============
 /**视频内容列表*/
--(void)showContentVideoListPage:(FlutterMethodCall *)call{
+- (void)showContentVideoListPage:(FlutterMethodCall *)call {
     NSDictionary  *dic = call.arguments;
     NSString *adId = [dic objectForKey:@"adId"];
     ZJContentListPageVC *vc = [[ZJContentListPageVC alloc]init];
@@ -409,7 +415,7 @@ static ZjsdkFlutterPlugin *zjsdkFlutterPlugin = nil;
 }
 
 /**视频内容瀑布流*/
--(void)showContentVideoFeedPage:(FlutterMethodCall *)call{
+- (void)showContentVideoFeedPage:(FlutterMethodCall *)call {
     NSDictionary  *dic = call.arguments;
     NSString *adId = [dic objectForKey:@"adId"];
     ZJFeedPageVC *vc = [[ZJFeedPageVC alloc]init];
@@ -446,7 +452,7 @@ static ZjsdkFlutterPlugin *zjsdkFlutterPlugin = nil;
 }
 
 /**视频内容横版*/
--(void)showContentVideoHorizontal:(FlutterMethodCall *)call{
+- (void)showContentVideoHorizontal:(FlutterMethodCall *)call {
     NSDictionary  *dic = call.arguments;
     NSString *adId = [dic objectForKey:@"adId"];
     ZJHorizontalFeedPageVC *vc = [[ZJHorizontalFeedPageVC alloc]init];
@@ -495,7 +501,7 @@ static ZjsdkFlutterPlugin *zjsdkFlutterPlugin = nil;
 }
 
 /**视频内容瀑图文*/
--(void)showContentVideoImageText:(FlutterMethodCall *)call{
+- (void)showContentVideoImageText:(FlutterMethodCall *)call {
     NSDictionary  *dic = call.arguments;
     NSString *adId = [dic objectForKey:@"adId"];
     ZJImageTextVC *VC = [[ZJImageTextVC alloc]init];
@@ -503,14 +509,14 @@ static ZjsdkFlutterPlugin *zjsdkFlutterPlugin = nil;
     [self presentNavViewcontroller:VC];
 }
 
--(void)presentNavViewcontroller:(UIViewController *)vc{
+- (void)presentNavViewcontroller:(UIViewController *)vc {
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
     nav.modalPresentationStyle = 0;
     [zj_getCurrentVC() presentViewController:nav animated:YES completion:nil];
 }
 #pragma mark =============== 回调给Flutter ===============
 /**回调事件*/
--(void)callbackWithEvent:(NSString *)event otherDic:(NSDictionary *)otherDic error:(NSError *)error{
+- (void)callbackWithEvent:(NSString *)event otherDic:(NSDictionary *)otherDic error:(NSError *)error {
     if (self.callback) {
         NSMutableDictionary *result = [NSMutableDictionary dictionary];
         [result setObject:event.length > 0 ?event :@"未知事件" forKey:@"event"];
