@@ -12,7 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ZJRewardVideoAdWrapper : NSObject
 
 //加载激励视频广告
--(void)loadRewardVideoAdWithAdId:(NSString *)adId userId:(NSString *)userId;
+-(void)loadRewardVideoAdWithAdId:(NSString *)adId 
+                          userId:(NSString *)userId
+                     reward_name:(NSString *)reward_name
+                   reward_amount:(int)reward_amount
+                           extra:(NSString *)extra;
 
 //显示激励视频广告对对应的控制器上
 -(void)showRewardVideoAdWithViewController:(UIViewController *)vc;

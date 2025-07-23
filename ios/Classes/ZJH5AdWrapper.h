@@ -18,14 +18,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 
-//广告加载成功回调
+//h5加载成功回调
 @property (nonatomic,copy)void(^onAdDidLoad)(void);
+
 //广告错误
 @property (nonatomic,copy)void(^onAdError)(NSError *error);
 
-
-//激励视频错误
+//h5激励视频广告加载成功
 @property (nonatomic,copy)void(^onRewardAdDidLoad)(void);
+
 //激励视频获得奖励
 @property (nonatomic,copy)void(^onRewardAdRewardEffective)(NSString *transId);
 

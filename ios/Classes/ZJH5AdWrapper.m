@@ -6,6 +6,8 @@
 //
 
 #import "ZJH5AdWrapper.h"
+#import <ZJSDKCore/ZJCommon.h>
+
 @interface ZJH5AdWrapper()<ZJH5PageDelegate>
 
 @property (nonatomic,strong)ZJH5Page *h5page;
@@ -28,6 +30,7 @@
             self.onAdError(error);
         }
     }else{
+        [self showAdWithViewController:[ZJCommon getCurrentVC]];
         if (self.onAdDidLoad) {
             self.onAdDidLoad();
         }

@@ -1,11 +1,14 @@
 #import <Flutter/Flutter.h>
 
-@interface ZjsdkFlutterPlugin : NSObject <FlutterPlugin,FlutterStreamHandler>
+@interface ZjsdkFlutterPlugin : NSObject<FlutterPlugin>
 
-@property (nonatomic, strong) NSObject <FlutterBinaryMessenger> *messenger;
++ (instancetype)sharedInstance;
 
-@property (nonatomic, strong)  FlutterMethodChannel  *methodChannel;
-
-+ (ZjsdkFlutterPlugin *)shareInstance;
+- (void)sendMessageWithType:(int)type
+                      action:(NSString *)action
+                      viewId:(int)viewId
+                        code:(int)code
+                         msg:(NSString *)msg
+                      extra:(NSString *)extra;
 
 @end

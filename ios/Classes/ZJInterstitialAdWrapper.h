@@ -12,7 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ZJInterstitialAdWrapper : NSObject
 
 //加载插屏广告
--(void)loadInterstitialAdWithAdId:(NSString *)adId;
+-(void)loadInterstitialAdWithAdId:(NSString *)adId
+                       mutedIfCan:(BOOL)mutedIfCan
+                           adSize:(CGSize)adSize;
 //展示
 -(void)showInViewController:(UIViewController *)vc;
 

@@ -7,6 +7,8 @@
 
 #import "ZJSplashAdWrapper.h"
 #import <ZJSDK/ZJSDK.h>
+#import <ZJSDKCore/ZJCommon.h>
+
 @interface ZJSplashAdWrapper()<ZJSplashAdDelegate>
 
 @property (nonatomic,strong)ZJSplashAd *splashAd;
@@ -22,7 +24,7 @@
     
 }
 
--(void)showSplashAdInWindow:(UIWindow *)window withBottomView:(nullable UIView *)bottomView{
+-(void)showSplashAdInWindow:(UIWindow *)window {
     [self.splashAd showAdInWindow:window];
 }
 
@@ -31,11 +33,10 @@
  *  开屏广告素材加载成功
  */
 -(void)zj_splashAdDidLoad:(ZJSplashAd *)splashAd{
-    
-    [self showSplashAdInWindow:[UIApplication sharedApplication].windows.firstObject withBottomView:nil];
     if (self.splashAdDidLoad) {
         self.splashAdDidLoad();
     }
+    [self showSplashAdInWindow:[ZJCommon getKeyWindow]];
 }
 
 /**
@@ -53,6 +54,16 @@
 - (void)zj_splashAdClicked:(ZJSplashAd *)splashAd{
     if (self.splashAdClicked) {
         self.splashAdClicked();
+    }
+}
+
+/**
+ *  开屏广告即将关闭回调
+ */
+- (void)zj_splashAdWillClose:(ZJSplashAd *)splashAd
+{
+    if (self.splashAdWillClosed) {
+        self.splashAdWillClosed();
     }
 }
 
@@ -90,6 +101,16 @@
 - (void)zj_splashAdError:(ZJSplashAd *)splashAd withError:(NSError *)error{
     if (self.splashAdError) {
         self.splashAdError(error);
+    }
+}
+
+/**
+ *  开屏广告播放错误
+ */
+- (void)zj_splashAdDisplayError:(ZJSplashAd *)splashAd withError:(NSError *)error
+{
+    if (self.splashAdDisplayError) {
+        self.splashAdDisplayError(error);
     }
 }
 

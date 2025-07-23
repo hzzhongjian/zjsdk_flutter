@@ -66,4 +66,25 @@
     
     return NO;
 }
+
+// 字典转字符串，去除字符串中的特殊字符
++ (NSString *)mapToString:(NSDictionary *)dict
+{
+    if (!dict && dict.allKeys.count == 0) {
+        return @"";
+    }
+    NSError *error = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict
+                                                       options:0
+                                                         error:&error];
+    if (!jsonData || error) {
+        return @"";
+    }
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    if (jsonString) {
+        return [jsonString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    }
+    return @"";
+}
+
 @end

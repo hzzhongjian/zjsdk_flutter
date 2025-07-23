@@ -14,8 +14,22 @@
 @end
 
 @implementation ZJRewardVideoAdWrapper
--(void)loadRewardVideoAdWithAdId:(NSString *)adId userId:(NSString *)userId{
+
+-(void)loadRewardVideoAdWithAdId:(NSString *)adId
+                          userId:(NSString *)userId
+                     reward_name:(NSString *)reward_name
+                   reward_amount:(int)reward_amount
+                           extra:(NSString *)extra{
     self.rewardVideoAd = [[ZJRewardVideoAd alloc]initWithPlacementId:adId userId:userId];
+    if (reward_name && reward_name.length > 0) {
+        self.rewardVideoAd.reward_name = reward_name;
+    }
+    if (reward_amount > 0) {
+        self.rewardVideoAd.reward_amount = reward_amount;
+    }
+    if (extra && extra.length > 0) {
+        self.rewardVideoAd.extra = extra;
+    }
     self.rewardVideoAd.delegate = self;
     [self.rewardVideoAd loadAd];
 }
@@ -40,6 +54,7 @@
     if (self.rewardVideoLoadSuccess) {
         self.rewardVideoLoadSuccess();
     }
+    [self showRewardVideoAdWithViewController:[ZJCommon getCurrentVC]];
 }
 
 /**
@@ -105,4 +120,26 @@
         self.rewardVideoAdError(error);
     }
 }
+
+/**
+ 视频广告播放错误信息回调
+ @param rewardedVideoAd ZJRewardVideoAd 实例
+ @param error 具体错误信息
+ */
+- (void)zj_rewardVideoAd:(ZJRewardVideoAd *)rewardedVideoAd displayFailWithError:(NSError *)error
+{
+    if (self.rewardVideoAdError) {
+        self.rewardVideoAdError(error);
+    }
+}
+
+/**
+ 用户点击视频跳过按钮
+ @param rewardedVideoAd ZJRewardVideoAd 实例
+ */
+- (void)zj_rewardVideoAdDidClickSkip:(ZJRewardVideoAd *)rewardedVideoAd
+{
+
+}
+
 @end
