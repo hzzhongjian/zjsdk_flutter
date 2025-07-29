@@ -23,26 +23,29 @@ class _BannerPageState extends State<BannerPage> {
           refreshInterval: 0,
           bannerListener: (ret) {
             switch (ret.action) {
-                  case IosZjEventAction.onAdLoaded:
-                    print('banner广告加载了');
-                    break;
-                  case IosZjEventAction.onAdError:
-                    print('banner广告错误');
-                    break;
-                  case IosZjEventAction.onAdShow:
-                    print('banner广告曝光');
-                    break;
-                  case IosZjEventAction.onAdClick:
-                    print("banner广告点击");
-                    break;
-                  case IosZjEventAction.onAdClose:
-                    print("banner广告关闭");
-                    break;
-                  case IosZjEventAction.onAdCloseOtherController:
-                    print("banner广告详情页关闭");
-                    break;
-                  default:
-                }
+              case IosZjEventAction.onAdLoaded:
+                print('banner广告加载了');
+                break;
+              case IosZjEventAction.onAdError:
+                print('banner广告错误');
+                break;
+              case IosZjEventAction.onAdShow:
+                print('banner广告曝光');
+                break;
+              case IosZjEventAction.onAdClick:
+                print("banner广告点击");
+                break;
+              case IosZjEventAction.onAdClose:
+                print("banner广告关闭");
+                break;
+              case IosZjEventAction.onAdCloseOtherController:
+                print("banner广告详情页关闭");
+                break;
+              case IosZjEventAction.onAdOpenOtherController:
+                print("落地页打开");
+                break;
+              default:
+            }
           },
         ),
       ),

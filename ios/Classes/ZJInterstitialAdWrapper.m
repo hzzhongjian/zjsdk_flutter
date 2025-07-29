@@ -74,4 +74,13 @@
     }
 }
 
+///插屏广告详情页展示回调
+- (void)zj_interstitialAdDetailDidPresentFullScreen:(ZJInterstitialAd*)ad
+{
+    if (self.interstitialAdDetailDidPresentFullScreen) {
+        self.interstitialAdDetailDidPresentFullScreen();
+    }
+}
+
+
 @end

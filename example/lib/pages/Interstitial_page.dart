@@ -42,6 +42,9 @@ class _InterstitialPageState extends State<InterstitialPage> {
                       case IosZjEventAction.onAdCloseOtherController:
                         print('插屏详情页关闭');
                         break;
+                      case IosZjEventAction.onAdOpenOtherController:
+                        print("落地页打开");
+                        break;
                       default:
                     }
                   },

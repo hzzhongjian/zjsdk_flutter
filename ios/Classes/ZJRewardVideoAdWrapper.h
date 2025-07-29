@@ -38,8 +38,14 @@ NS_ASSUME_NONNULL_BEGIN
 //激励视频触发奖励回调-返回交易id
 @property (nonatomic,copy)void(^rewardVideoDidRewardEffective)(NSString *transId,NSDictionary *validationDictionary);
 
+// 用户点击视频跳过按钮
+@property (nonatomic, copy) void(^rewardVideoAdDidClickSkip)(void);
 
+// 广告详情页关闭回调
+@property (nonatomic, copy) void(^rewardVideoAdDidCloseOtherController)(void);
 
+// 进入广告详情页回调
+@property (nonatomic, copy) void(^rewardVideoAdDidPresentFullScreen)(void);
 
 @end
 

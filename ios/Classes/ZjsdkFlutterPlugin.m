@@ -217,7 +217,8 @@ static FlutterBasicMessageChannel *_messageChannel = nil;
     }];
     //开屏广告倒记时结束回调
     [self.splashAdWrapper setSplashAdCountdownEnd:^{
-        
+        __strong typeof(self) strongSelf = weakSelf;
+        [strongSelf sendMessageWithType:SPLASH action:ZJSDKFlutterPluginOnAdCountdownEndAction viewId:-1 code:ZJSDKFlutterPluginCode_SUCCESS msg:@"" extra:@""];
     }];
     //开屏广告错误回调
     [self.splashAdWrapper setSplashAdError:^(NSError * _Nonnull error) {
@@ -228,6 +229,17 @@ static FlutterBasicMessageChannel *_messageChannel = nil;
     [self.splashAdWrapper setSplashAdDisplayError:^(NSError * _Nonnull error) {
         __strong typeof(self) strongSelf = weakSelf;
         [strongSelf sendMessageWithType:SPLASH action:ZJSDKFlutterPluginOnAdErrorAction viewId:-1 code:(int)error.code msg:error.convertJSONString extra:@""];
+    }];
+    // 落地页打开
+    [self.splashAdWrapper setSplashAdDetailViewShow:^{
+        __strong typeof(self) strongSelf = weakSelf;
+        [strongSelf sendMessageWithType:SPLASH action:ZJSDKFlutterPluginOnAdOpenOtherControllerAction viewId:-1 code:ZJSDKFlutterPluginCode_SUCCESS msg:@"" extra:@""];
+    }];
+
+    // 落地页关闭
+    [self.splashAdWrapper setSplashAdDetailViewClose:^{
+        __strong typeof(self) strongSelf = weakSelf;
+        [strongSelf sendMessageWithType:SPLASH action:ZJSDKFlutterPluginOnAdCloseOtherControllerAction viewId:-1 code:ZJSDKFlutterPluginCode_SUCCESS msg:@"" extra:@""];
     }];
     [self.splashAdWrapper loadSplashAdWithAdId:posId fetchDelay:5.0];
 }
@@ -273,6 +285,10 @@ static FlutterBasicMessageChannel *_messageChannel = nil;
         __strong typeof(self) strongSelf = weakSelf;
         [strongSelf sendMessageWithType:INTERSTITIAL action:ZJSDKFlutterPluginOnAdCloseOtherControllerAction viewId:-1 code:ZJSDKFlutterPluginCode_SUCCESS msg:@"" extra:@""];
     }];
+    [self.interstitialAdWrapper setInterstitialAdDetailDidPresentFullScreen:^{
+        __strong typeof(self) strongSelf = weakSelf;
+        [strongSelf sendMessageWithType:INTERSTITIAL action:ZJSDKFlutterPluginOnAdOpenOtherControllerAction viewId:-1 code:ZJSDKFlutterPluginCode_SUCCESS msg:@"" extra:@""];
+    }];
     [self.interstitialAdWrapper loadInterstitialAdWithAdId:posId mutedIfCan:mutedIfCan adSize:adSize];
 }
 
@@ -314,6 +330,18 @@ static FlutterBasicMessageChannel *_messageChannel = nil;
     [self.rewardVideoAdWrapper setRewardVideoDidRewardEffective:^(NSString * _Nonnull transId, NSDictionary * _Nonnull validationDictionary) {
         __strong typeof(self) strongSelf = weakSelf;
         [strongSelf sendMessageWithType:REWARD_VIDEO action:ZJSDKFlutterPluginOnAdRewardAction viewId:-1 code:ZJSDKFlutterPluginCode_SUCCESS msg:transId extra:[ZJPlatformTool mapToString:validationDictionary]];
+    }];
+    [self.rewardVideoAdWrapper setRewardVideoAdDidClickSkip:^{
+        __strong typeof(self) strongSelf = weakSelf;
+        [strongSelf sendMessageWithType:REWARD_VIDEO action:ZJSDKFlutterPluginOnAdClickSkipAction viewId:-1 code:ZJSDKFlutterPluginCode_SUCCESS msg:@"" extra:@""];
+    }];
+    [self.rewardVideoAdWrapper setRewardVideoAdDidPresentFullScreen:^{
+        __strong typeof(self) strongSelf = weakSelf;
+        [strongSelf sendMessageWithType:REWARD_VIDEO action:ZJSDKFlutterPluginOnAdOpenOtherControllerAction viewId:-1 code:ZJSDKFlutterPluginCode_SUCCESS msg:@"" extra:@""];
+    }];
+    [self.rewardVideoAdWrapper setRewardVideoAdDidCloseOtherController:^{
+        __strong typeof(self) strongSelf = weakSelf;
+        [strongSelf sendMessageWithType:REWARD_VIDEO action:ZJSDKFlutterPluginOnAdCloseOtherControllerAction viewId:-1 code:ZJSDKFlutterPluginCode_SUCCESS msg:@"" extra:@""];
     }];
     [self.rewardVideoAdWrapper loadRewardVideoAdWithAdId:posId userId:userId reward_name:reward_name reward_amount:reward_amount extra:extra];
 }

@@ -119,6 +119,13 @@
     [[ZjsdkFlutterPlugin sharedInstance] sendMessageWithType:BANNER action:ZJSDKFlutterPluginOnAdCloseOtherControllerAction viewId:(int)self.viewId code:ZJSDKFlutterPluginCode_SUCCESS msg:@"" extra:@""];
 }
 
+/**
+ 打开banner广告详情页回调
+ */
+- (void)zj_bannerAdDetailDidPresentFullScreen:(ZJBannerAd *)bannerAd
+{
+    [[ZjsdkFlutterPlugin sharedInstance] sendMessageWithType:BANNER action:ZJSDKFlutterPluginOnAdOpenOtherControllerAction viewId:(int)self.viewId code:ZJSDKFlutterPluginCode_SUCCESS msg:@"" extra:@""];
+}
 
 @end
 

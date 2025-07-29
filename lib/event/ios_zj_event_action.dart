@@ -41,6 +41,12 @@ enum IosZjEventAction {
   /// 关闭落地页
   onAdCloseOtherController("onAdCloseOtherController"),
 
+  /// 倒计时结束
+  onAdCountdownEnd("onAdCountdownEnd"),
+
+  /// 点击跳过
+  onAdClickSkip("onAdClickSkip"),
+
   /// 视频开始播放
   onVideoDidStartPlay("onVideoDidStartPlay"),
 

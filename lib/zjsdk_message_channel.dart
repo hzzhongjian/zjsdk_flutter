@@ -256,9 +256,9 @@ class ZjsdkMessageChannel {
   /// 销毁回调对象
   void tryDestroyListener(IosZjEvent event, dynamic listener) {
     /// 当前加载已结束
-    if (event.action == IosZjEventAction.onAdError ||
-        event.action == IosZjEventAction.onAdClose) {
-      listener = null;
-    }
+    // if (event.action == IosZjEventAction.onAdError ||
+    //     event.action == IosZjEventAction.onAdClose) {
+    //   listener = null;
+    // }
   }
 }

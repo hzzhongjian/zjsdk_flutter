@@ -139,7 +139,27 @@
  */
 - (void)zj_rewardVideoAdDidClickSkip:(ZJRewardVideoAd *)rewardedVideoAd
 {
-
+    if (self.rewardVideoAdDidClickSkip) {
+        self.rewardVideoAdDidClickSkip();
+    }
 }
+
+// 广告详情页关闭回调
+- (void)zj_rewardVideoAdDidCloseOtherController:(ZJRewardVideoAd *)rewardedVideoAd
+{
+    if (self.rewardVideoAdDidCloseOtherController) {
+        self.rewardVideoAdDidCloseOtherController();
+    }
+}
+
+
+// 进入广告详情页回调
+- (void)zj_rewardVideoAdDidPresentFullScreen:(ZJRewardVideoAd *)rewardedVideoAd
+{
+    if (self.rewardVideoAdDidPresentFullScreen) {
+        self.rewardVideoAdDidPresentFullScreen();
+    }
+}
+
 
 @end

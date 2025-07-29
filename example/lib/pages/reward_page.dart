@@ -44,6 +44,15 @@ class _RewardPageState extends State<RewardPage> {
                         dynamic extra = ret.extra;
                         print('激励发奖--${tradeId}--${extra}');
                         break;
+                      case IosZjEventAction.onAdClickSkip:
+                        print("点击跳过按钮");
+                        break;
+                      case IosZjEventAction.onAdOpenOtherController:
+                        print("落地页打开");
+                        break;
+                      case IosZjEventAction.onAdCloseOtherController:
+                        print("落地页关闭");
+                        break;
                       default:
                     }
                   },

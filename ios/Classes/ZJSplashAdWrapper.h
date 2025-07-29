@@ -43,6 +43,13 @@ NS_ASSUME_NONNULL_BEGIN
 //开屏广告播放错误
 @property (nonatomic,copy)void(^splashAdDisplayError)(NSError *error);
 
+/// 开屏广告落地页打开 -- 部分联盟有回调
+@property (nonatomic, copy) void (^splashAdDetailViewShow)(void);
+
+/// 开屏广告落地页关闭 -- 部分联盟有回调
+@property (nonatomic, copy) void (^splashAdDetailViewClose)(void);
+
+
 @end
 
 NS_ASSUME_NONNULL_END

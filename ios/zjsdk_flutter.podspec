@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'zjsdk_flutter'
-  s.version          = '0.2.0'
+  s.version          = '0.2.1'
   s.summary          = 'zjsdk ads flutter plugin package.'
   s.description      = <<-DESC
 A new Flutter plugin project.

@@ -36,6 +36,15 @@ class _SplashPageState extends State<SplashPage> {
                     case IosZjEventAction.onAdClose:
                       print("开屏广告关闭");
                       break;
+                    case IosZjEventAction.onAdCountdownEnd:
+                      print("倒计时结束");
+                      break;
+                    case IosZjEventAction.onAdOpenOtherController:
+                      print('落地页打开');
+                      break;
+                    case IosZjEventAction.onAdCloseOtherController:
+                      print('落地页关闭');
+                      break;
                     default:
                   }
                 });

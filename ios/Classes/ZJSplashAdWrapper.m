@@ -114,4 +114,20 @@
     }
 }
 
+/// 开屏广告落地页打开 -- 部分联盟有回调
+- (void)zj_splashAdDetailViewShow:(ZJSplashAd *)splashAd
+{
+    if (self.splashAdDetailViewShow) {
+        self.splashAdDetailViewShow();
+    }
+}
+
+/// 开屏广告落地页关闭 -- 部分联盟有回调
+- (void)zj_splashAdDetailViewClose:(ZJSplashAd *)splashAd
+{
+    if (self.splashAdDetailViewClose) {
+        self.splashAdDetailViewClose();
+    }
+}
+
 @end

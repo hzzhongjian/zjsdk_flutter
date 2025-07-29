@@ -26,11 +26,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy)void(^interstitialAdDidClick)(void);
 //插屏广告关闭
 @property (nonatomic,copy)void(^interstitialAdDidClose)(void);
-
 //插屏广告展示
 @property (nonatomic,copy)void(^interstitialAdDidPresentScreen)(void);
 //插屏广告关闭详情页
 @property (nonatomic,copy)void(^interstitialAdDetailDidClose)(void);
+//插屏广告打开详情页
+@property (nonatomic,copy)void(^interstitialAdDetailDidPresentFullScreen)(void);
+
 @end
 
 NS_ASSUME_NONNULL_END
