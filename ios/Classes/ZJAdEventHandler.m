@@ -37,7 +37,19 @@ ZJSDKFlutterPluginAction const ZJSDKFlutterPluginOnContentDidEndDisplayAction = 
 ZJSDKFlutterPluginAction const ZJSDKFlutterPluginOnContentDidPauseAction = @"onContentDidPause";
 ZJSDKFlutterPluginAction const ZJSDKFlutterPluginOnContentDidResumeAction = @"onContentDidResume";
 ZJSDKFlutterPluginAction const ZJSDKFlutterPluginOnContentTaskCompleteAction = @"onContentTaskComplete";
-
+// 以下是短剧使用的
+ZJSDKFlutterPluginAction const ZJSDKFlutterPluginOnPlayletLoadSuccessAction = @"onContentLoadSuccess";
+ZJSDKFlutterPluginAction const ZJSDKFlutterPluginOnPlayletLoadFailureAction = @"onContentLoadFailure";
+ZJSDKFlutterPluginAction const ZJSDKFlutterPluginOnPlayletDetailUnlockFlowStartAction = @"onUnlockFlowStart";
+ZJSDKFlutterPluginAction const ZJSDKFlutterPluginOnPlayletDetailUnlockFlowCancelAction = @"onUnlockFlowCancel";
+ZJSDKFlutterPluginAction const ZJSDKFlutterPluginOnPlayletDetailUnlockFlowEndAction = @"onUnlockFlowEnd";
+ZJSDKFlutterPluginAction const ZJSDKFlutterPluginOnPlayletClickEnterViewAction = @"onPlayletClickEnterView";
+ZJSDKFlutterPluginAction const ZJSDKFlutterPluginOnPlayletNextPlayletWillPlayAction = @"onPlayletNextPlayletWillPlay";
+ZJSDKFlutterPluginAction const ZJSDKFlutterPluginOnCurrentVideoChangedAction = @"onCurrentVideoChanged";
+ZJSDKFlutterPluginAction const ZJSDKFlutterPluginOnDidClickedErrorButtonRetryAction = @"onDidClickedErrorButtonRetry";
+ZJSDKFlutterPluginAction const ZJSDKFlutterPluginOnPlayletCloseButtonClickedAction = @"onPlayletCloseButtonClicked";
+ZJSDKFlutterPluginAction const ZJSDKFlutterPluginOnDataRefreshCompletionAction = @"onDataRefreshCompletion";
+ZJSDKFlutterPluginAction const ZJSDKFlutterPluginOnViewControllerSwitchToIndexAction = @"onViewControllerSwitchToIndex";
 
 @implementation ZJAdEventHandler
 

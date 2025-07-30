@@ -75,7 +75,45 @@ enum IosZjEventAction {
   onContentDidResume("onContentDidResume"),
 
   /// 任务完成回调
-  onContentTaskCompleteAction("onContentTaskComplete");
+  onContentTaskCompleteAction("onContentTaskComplete"),
+
+  /// 内容加载成功
+  onContentLoadSuccess("onContentLoadSuccess"),
+
+  /// 内容加载失败
+  onContentLoadFailure("onContentLoadFailure"),
+  
+  /// 短剧开始解锁
+  onUnlockFlowStart("onUnlockFlowStart"),
+  
+  /// 短剧解锁取消
+  onUnlockFlowCancel("onUnlockFlowCancel"),
+
+  /// 短剧解锁结束
+  onUnlockFlowEnd("onUnlockFlowEnd"),
+
+  /// 点击混排中进入跳转播放页的按钮 
+  onPlayletClickEnterView("onPlayletClickEnterView"),
+
+  /// 本剧集观看完毕，切到下一部短剧回调
+  onPlayletNextPlayletWillPlay("onPlayletNextPlayletWillPlay"),
+
+  /// 视频切换时的回调
+  onCurrentVideoChanged("onCurrentVideoChanged"),
+
+  /// 加载失败按钮点击重试回调
+  onDidClickedErrorButtonRetry("onDidClickedErrorButtonRetry"),
+
+  /// 默认关闭按钮被点击的回调
+  onPlayletCloseButtonClicked("onPlayletCloseButtonClicked"),
+
+  /// 数据刷新完成回调
+  onDataRefreshCompletion("onDataRefreshCompletion"),
+
+  /// tab栏切换控制器的回调
+  onViewControllerSwitchToIndex("onViewControllerSwitchToIndex"),
+
+  ;
 
   const IosZjEventAction(this.action);
 

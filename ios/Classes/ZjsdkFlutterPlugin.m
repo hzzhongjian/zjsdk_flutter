@@ -14,6 +14,7 @@
 #import "ZJNewsAdPlatformView.h"
 #import "ZJFeedFullVideoPlatformView.h"
 #import "ZJContentAdPlatformView.h"
+#import "ZJPlayletAdPlatformView.h"
 
 @interface ZjsdkFlutterPlugin ()
 
@@ -60,6 +61,9 @@ static FlutterBasicMessageChannel *_messageChannel = nil;
 //    视频内容
     ZJContentAdPlatformViewFactory *contentAdPlatformViewFactory = [[ZJContentAdPlatformViewFactory alloc] initWithRegistrar:registrar];
     [registrar registerViewFactory:contentAdPlatformViewFactory withId:@"ios_zjsdk_flutter_plugin/contentAd"];
+//    短剧
+    ZJPlayletAdPlatformViewFactory *playletAdPlatformFactory = [[ZJPlayletAdPlatformViewFactory alloc] initWithRegistrar:registrar];
+    [registrar registerViewFactory:playletAdPlatformFactory withId:@"ios_zjsdk_flutter_plugin/playletAd"];
     
     FlutterMethodChannel *channel = [FlutterMethodChannel
                                      methodChannelWithName:@"ios_zjsdk_flutter_plugin/sdk_method"

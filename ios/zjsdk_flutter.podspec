@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'zjsdk_flutter'
-  s.version          = '0.2.1'
+  s.version          = '0.2.2'
   s.summary          = 'zjsdk ads flutter plugin package.'
   s.description      = <<-DESC
 A new Flutter plugin project.
@@ -30,5 +30,9 @@ A new Flutter plugin project.
 
   # 对接广告需要引入的依赖
   s.dependency 'ZJSDK'
+
+  # s.dependency 'ZJSDK/ZJSDKModuleCSJPlayletSDK'
+  # s.dependency 'TTSDKFramework/Player-SR', '1.42.3.4-premium'
+  # s.dependency 'PangrowthX/shortplay', '2.8.0.0'
 
 end

@@ -10,7 +10,7 @@ import 'package:zjsdk_flutter_example/pages/native_express_page.dart';
 import 'package:zjsdk_flutter_example/pages/news_page.dart';
 import 'package:zjsdk_flutter_example/pages/reward_page.dart';
 import 'package:zjsdk_flutter_example/pages/splash_page.dart';
-
+import 'package:zjsdk_flutter_example/pages/playlet_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -44,6 +44,7 @@ class _MyAppState extends State<MyApp> {
     ListData('视频内容', ContentPage()),
     ListData('新闻资讯', NewsPage()),
     ListData('H5页面', H5Page()),
+    ListData('短剧', PlayletPage()),
   ];
 
   @override
