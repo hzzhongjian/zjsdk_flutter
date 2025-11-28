@@ -18,3 +18,13 @@ example/ios/Runner/GeneratedPluginRegistrant.m
 .packages
 .project
 .settings/
+example/.dart_tool/extension_discovery/README.md
+example/.dart_tool/extension_discovery/vs_code.json
+example/.dart_tool/package_config.json
+example/.flutter-plugins-dependencies
+example/ios/Flutter/Flutter.podspec
+example/ios/Flutter/Generated.xcconfig
+example/ios/Flutter/flutter_export_environment.sh
+example/ios/Runner.xcworkspace/xcuserdata/mamingkang.xcuserdatad/UserInterfaceState.xcuserstate
+example/ios/Runner.xcworkspace/xcuserdata/mamingkang.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
+example/ios/Runner/GeneratedPluginRegistrant.h
