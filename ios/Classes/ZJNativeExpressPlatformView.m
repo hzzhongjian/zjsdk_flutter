@@ -130,10 +130,10 @@
  */
 - (void)ZJ_nativeExpressFeedAdDislike:(ZJNativeExpressFeedAd *)feedAd
 {
-    if (self.containerView) {
-        [self.containerView removeFromSuperview];
-        self.containerView = nil;
-    }
+//    if (self.containerView) {
+//        [self.containerView removeFromSuperview];
+//        self.containerView = nil;
+//    }
     [[ZjsdkFlutterPlugin sharedInstance] sendMessageWithType:NATIVE_EXPRESS action:ZJSDKFlutterPluginOnAdCloseAction viewId:(int)self.viewId code:ZJSDKFlutterPluginCode_SUCCESS msg:@"" extra:@""];
 }
 /**
