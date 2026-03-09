@@ -6,7 +6,6 @@
 // For more information about Flutter integration tests, please see
 // https://docs.flutter.dev/cookbook/testing/integration/introduction
 
-
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 
@@ -15,4 +14,11 @@ import 'package:zjsdk_flutter/zjsdk_flutter.dart';
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
+  testWidgets('getPlatformVersion test', (WidgetTester tester) async {
+    final ZjsdkFlutter plugin = ZjsdkFlutter();
+    final String? version = "";
+    // The version string depends on the host platform running the test, so
+    // just assert that some non-empty string is returned.
+    expect(version?.isNotEmpty, true);
+  });
 }

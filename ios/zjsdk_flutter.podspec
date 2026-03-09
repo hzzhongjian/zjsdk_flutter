@@ -16,13 +16,11 @@ A new Flutter plugin project.
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
   s.platform = :ios, '11.0'
-  s.static_framework = true
 
   # Flutter.framework does not contain a i386 slice.
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
   s.swift_version = '5.0'
-
-  # 对接广告需要引入的依赖
+    # 对接广告需要引入的依赖
   s.dependency 'ZJSDK'
 
 #        ss.dependency 'Ads-CN/CSJMediation-Only'
@@ -30,5 +28,4 @@ A new Flutter plugin project.
 #        ss.dependency 'TTSDKFramework/Player-SR', '1.46.2.7-premium'
 #        ss.dependency 'TTSDKFramework/LivePull', '1.46.2.7-premium'
 #        ss.dependency 'PangrowthX/shortplay', '2.9.0.5'
-
 end
