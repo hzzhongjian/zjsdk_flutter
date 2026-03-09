@@ -1,0 +1,52 @@
+# zjsdk_flutter
+
+A new Flutter plugin project.
+
+## Getting Started
+
+This project is a starting point for a Flutter
+[plug-in package](https://flutter.dev/developing-packages/),
+a specialized package that includes platform-specific implementation code for
+Android and/or iOS.
+
+For help getting started with Flutter development, view the
+[online documentation](https://flutter.dev/docs), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
+
+## 支持的广告类型
+
+* 开屏广告
+* 激励视频
+* 插屏广告
+* 横幅广告
+* 信息流广告
+* 视频流广告
+* 视频内容
+* 短剧
+* H5页面
+
+
+## 开始接入
+
+> **插件需要`Flutter >=3.0.0`，请升级Flutter版本**
+> **`enhanced Enum`需要指定`SDK>=2.17.0`，请调整SDK版本**
+> **SDK版本调整后依然报错，请手动删除`.dart_tool`目录重新执行`pub-get`**
+>
+
+```yaml
+environment:
+  sdk: ">=2.17.0 <3.0.0"
+```
+
+| 版本更新日志 | 修订日期  | 修订说明 |
+| -- | -- | -- |
+| 0.2.6 | 2026-03-09 | 视频flutter最新版本，项目使用swift语言创建 |
+| 0.2.5 | 2026-01-27 | 开屏，插屏，激励广告新增竞价成功，竞价失败方法回传 |
+| 0.2.4 | 2026-01-23 | 新增广告价格回传，通过ret.extra获取 |
+| 0.2.3 | 2025-11-28 | 修复已知问题 |
+| 0.2.2 | 2025-07-29 | 新增短剧对接代码 |
+| 0.2.1 | 2025-07-29 | 部分广告新增落地页打开和关闭的事件回调 |
+| 0.2.0 | 2025-07-22 | 对接代码重构 |
+| 0.1.9 | 2024-12-28 | 已知问题修复 |
+
+ZJSDK Flutter详细对接文档[Flutter对接文档](https://static-1318684143.cos.ap-shanghai.myqcloud.com/sdk-downloads/docs/flutter/ios/index.html)

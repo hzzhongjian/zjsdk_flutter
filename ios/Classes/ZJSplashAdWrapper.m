@@ -1,0 +1,150 @@
+//
+//  ZJAdWrapper.m
+//  ZJSDK_flutter_demo
+//
+//  Created by Rare on 2021/3/25.
+//
+
+#import "ZJSplashAdWrapper.h"
+#import <ZJSDK/ZJSDK.h>
+#import <ZJSDKCore/ZJCommon.h>
+
+@interface ZJSplashAdWrapper() <ZJSplashAdDelegate>
+
+@property (nonatomic, strong)ZJSplashAd *splashAd;
+
+@end
+@implementation ZJSplashAdWrapper
+
+-(void)loadSplashAdWithAdId:(NSString *)adId fetchDelay:(CGFloat)fetchDelay{
+    self.splashAd = [[ZJSplashAd alloc]initWithPlacementId:adId];
+    self.splashAd.fetchDelay = fetchDelay;
+    self.splashAd.delegate = self;
+    [self.splashAd loadAd];
+    
+}
+
+-(void)showSplashAdInWindow:(UIWindow *)window {
+    [self.splashAd showAdInWindow:window];
+}
+
+#pragma mark - ZJSplashAdDelegate
+/**
+ *  开屏广告素材加载成功
+ */
+-(void)zj_splashAdDidLoad:(ZJSplashAd *)splashAd{
+    if (self.splashAdDidLoad) {
+        NSDictionary *param = @{
+            @"ecpm":@(splashAd.eCPM)
+        };
+        self.splashAdDidLoad(param);
+    }
+    [self showSplashAdInWindow:[ZJCommon getKeyWindow]];
+}
+
+/**
+ *  开屏广告成功展示
+ */
+-(void)zj_splashAdSuccessPresentScreen:(ZJSplashAd *)splashAd{
+    if (self.splashAdSuccessPresentScreen) {
+        self.splashAdSuccessPresentScreen();
+    }
+}
+
+/**
+ *  开屏广告点击回调
+ */
+- (void)zj_splashAdClicked:(ZJSplashAd *)splashAd{
+    if (self.splashAdClicked) {
+        self.splashAdClicked();
+    }
+}
+
+/**
+ *  开屏广告即将关闭回调
+ */
+- (void)zj_splashAdWillClose:(ZJSplashAd *)splashAd
+{
+    if (self.splashAdWillClosed) {
+        self.splashAdWillClosed();
+    }
+}
+
+/**
+ *  开屏广告关闭回调
+ */
+- (void)zj_splashAdClosed:(ZJSplashAd *)splashAd{
+    if (self.splashAdClosed) {
+        self.splashAdClosed();
+    }
+}
+
+/**
+ *  应用进入后台时回调
+ *  详解: 当点击下载应用时会调用系统程序打开，应用切换到后台
+ */
+- (void)zj_splashAdApplicationWillEnterBackground:(ZJSplashAd *)splashAd{
+    if (self.splashAdApplicationWillEnterBackground) {
+        self.splashAdApplicationWillEnterBackground();
+    }
+}
+
+/**
+ * 开屏广告倒记时结束
+ */
+- (void)zj_splashAdCountdownEnd:(ZJSplashAd*)splashAd{
+    if (self.splashAdCountdownEnd) {
+        self.splashAdCountdownEnd();
+    }
+}
+
+/**
+ *  开屏广告错误
+ */
+- (void)zj_splashAdError:(ZJSplashAd *)splashAd withError:(NSError *)error{
+    if (self.splashAdError) {
+        self.splashAdError(error);
+    }
+}
+
+/**
+ *  开屏广告播放错误
+ */
+- (void)zj_splashAdDisplayError:(ZJSplashAd *)splashAd withError:(NSError *)error
+{
+    if (self.splashAdDisplayError) {
+        self.splashAdDisplayError(error);
+    }
+}
+
+/// 开屏广告落地页打开 -- 部分联盟有回调
+- (void)zj_splashAdDetailViewShow:(ZJSplashAd *)splashAd
+{
+    if (self.splashAdDetailViewShow) {
+        self.splashAdDetailViewShow();
+    }
+}
+
+/// 开屏广告落地页关闭 -- 部分联盟有回调
+- (void)zj_splashAdDetailViewClose:(ZJSplashAd *)splashAd
+{
+    if (self.splashAdDetailViewClose) {
+        self.splashAdDetailViewClose();
+    }
+}
+
+- (void)setBidEcpm:(NSInteger)ecpm highestLossEcpm:(NSInteger)highestLossEcpm
+{
+    if (self.splashAd) {
+        [self.splashAd setBidEcpm:ecpm highestLossEcpm:highestLossEcpm];
+    }
+}
+
+- (void)reportAdExposureFailed:(int)failureCode reportParam:(ZJAdExposureReportParam *)reportParam
+{
+    if (self.splashAd) {
+        [self.splashAd reportAdExposureFailed:failureCode reportParam:reportParam];
+    }
+}
+
+@end
