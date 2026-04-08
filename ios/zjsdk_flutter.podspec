@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'zjsdk_flutter'
-  s.version          = '0.2.6'
+  s.version          = '0.2.7'
   s.summary          = 'zjsdk ads flutter plugin package.'
   s.description      = <<-DESC
 A new Flutter plugin project.
@@ -21,7 +21,8 @@ A new Flutter plugin project.
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
   s.swift_version = '5.0'
     # 对接广告需要引入的依赖
-  s.dependency 'ZJSDK'
+  # s.dependency 'ZJSDK'
+  s.dependency 'ZJSDK/ZJSDKModuleDSP'
 
 #        ss.dependency 'Ads-CN/CSJMediation-Only'
 #        ss.dependency 'Ads-CN/BUAdLive'

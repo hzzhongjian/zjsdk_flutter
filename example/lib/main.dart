@@ -42,7 +42,6 @@ class _MyAppState extends State<MyApp> {
     ListData('信息流广告', NativeExpressPage()),
     ListData('视频流广告', FeedFullVideoPage()),
     ListData('视频内容', ContentPage()),
-    ListData('新闻资讯', NewsPage()),
     ListData('H5页面', H5Page()),
     ListData('短剧', PlayletPage()),
   ];
