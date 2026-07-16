@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'zjsdk_flutter'
-  s.version          = '0.2.7'
+  s.version          = '0.2.8'
   s.summary          = 'zjsdk ads flutter plugin package.'
   s.description      = <<-DESC
 A new Flutter plugin project.
@@ -24,9 +24,12 @@ A new Flutter plugin project.
   # s.dependency 'ZJSDK'
   s.dependency 'ZJSDK/ZJSDKModuleDSP'
 
-#        ss.dependency 'Ads-CN/CSJMediation-Only'
-#        ss.dependency 'Ads-CN/BUAdLive'
-#        ss.dependency 'TTSDKFramework/Player-SR', '1.46.2.7-premium'
-#        ss.dependency 'TTSDKFramework/LivePull', '1.46.2.7-premium'
-#        ss.dependency 'PangrowthX/shortplay', '2.9.0.5'
+  # s.dependency 'ZJSDK/ZJSDKModuleCSJCompatible'
+  # s.dependency 'ZJSDK/ZJSDKModuleCSJPlayletSDK', '2.6.2.7'
+  # s.dependency 'Ads-CN/CSJMediation-Only'
+  # s.dependency 'Ads-CN/BUAdLive'
+  # s.dependency 'TTSDKFramework/Player-SR', '1.46.2.7-premium'
+  # s.dependency 'TTSDKFramework/LivePull', '1.46.2.7-premium'
+  # s.dependency 'PangrowthX/shortplay', '2.9.0.5'
+
 end

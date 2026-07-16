@@ -232,6 +232,7 @@
     if (self.weakTubeVC) {
         [self.weakTubeVC.view setFrame:self.containerView.bounds];
         [self.containerView addSubview:self.weakTubeVC.view];
+        [[ZJCommon getCurrentVC] addChildViewController:self.weakTubeVC];
         [ZjsdkFlutterPlugin sendMessageWithType:TUBE_AD action:ZJSDKFlutterPluginOnPlayletLoadSuccessAction viewId:(int)self.viewId code:ZJSDKFlutterPluginCode_SUCCESS msg:@"" extra:@""];
     } else {
         [ZjsdkFlutterPlugin sendMessageWithType:TUBE_AD action:ZJSDKFlutterPluginOnPlayletLoadFailureAction viewId:(int)self.viewId code:ZJSDKFlutterPluginCode_FAILURE msg:@"" extra:@""];

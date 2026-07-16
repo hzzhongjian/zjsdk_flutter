@@ -1,5 +1,8 @@
+#source 'https://github.com/CocoaPods/Specs.git'
+#source 'https://github.com/volcengine/volcengine-specs.git'
+
 # Uncomment this line to define a global platform for your project
-platform :ios, '12.0'
+platform :ios, '13.0'
 
 # CocoaPods analytics sends network stats synchronously affecting flutter build latency.
 ENV['COCOAPODS_DISABLE_STATS'] = 'true'
@@ -32,6 +35,16 @@ target 'Runner' do
   use_modular_headers!
   # pod 'ZJSDK'
   pod 'ZJSDK/ZJSDKModuleDSP'
+  
+#  pod 'ZJSDK/ZJSDKModuleCSJCompatible'
+#  pod 'ZJSDK/ZJSDKModuleCSJPlayletSDK', '2.6.2.7'
+#  
+#  pod 'Ads-CN/BUAdSDK'
+#  pod 'Ads-CN/CSJMediation-Only'
+#  pod 'Ads-CN/BUAdLive'
+#  pod 'TTSDKFramework/Player-SR', '1.46.2.7-premium'
+#  pod 'TTSDKFramework/LivePull', '1.46.2.7-premium'
+#  pod 'PangrowthX/shortplay', '2.9.0.5'
 
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
   target 'RunnerTests' do
